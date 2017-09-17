@@ -15,6 +15,7 @@
 		13498DCA1F6781A100B07DF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13498DC81F6781A100B07DF6 /* LaunchScreen.storyboard */; };
 		1355F3621F6EF44B00A469C2 /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1355F3611F6EF44B00A469C2 /* ReadJson.swift */; };
 		1355F3641F6EF73F00A469C2 /* MusicError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1355F3631F6EF73F00A469C2 /* MusicError.swift */; };
+		1355F3651F6F176400A469C2 /* Dummy.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 1355F3601F6EF3C300A469C2 /* Dummy.geojson */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1355F3651F6F176400A469C2 /* Dummy.geojson in Resources */,
 				13498DCA1F6781A100B07DF6 /* LaunchScreen.storyboard in Resources */,
 				13498DC71F6781A100B07DF6 /* Assets.xcassets in Resources */,
 				13498DC51F6781A100B07DF6 /* Main.storyboard in Resources */,

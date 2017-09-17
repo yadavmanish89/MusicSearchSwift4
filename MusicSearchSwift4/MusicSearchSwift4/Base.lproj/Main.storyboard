@@ -68,27 +68,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-cO-jjH">
-                                            <rect key="frame" x="120" y="15" width="100" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-cO-jjH">
+                                            <rect key="frame" x="10" y="5" width="355" height="33.5"/>
                                             <color key="backgroundColor" red="0.74509805439999999" green="0.15686275059999999" blue="0.074509806930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Co-bC-BIh">
-                                            <rect key="frame" x="120" y="65" width="100" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.74509805439999999" green="0.15686275059999999" blue="0.074509806930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.16319538380000001" green="0.4635275136" blue="0.12048288579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="Mcd-cO-jjH" firstAttribute="leading" secondItem="cAy-qg-lMd" secondAttribute="leading" constant="10" id="Vkt-rH-96T"/>
+                                        <constraint firstAttribute="bottom" secondItem="Mcd-cO-jjH" secondAttribute="bottom" constant="5" id="gnd-kq-6Qv"/>
+                                        <constraint firstAttribute="trailing" secondItem="Mcd-cO-jjH" secondAttribute="trailing" constant="10" id="hXN-dc-ZYf"/>
+                                        <constraint firstItem="Mcd-cO-jjH" firstAttribute="top" secondItem="cAy-qg-lMd" secondAttribute="top" constant="5" id="w0P-x8-MZF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="trackDetail" destination="5Co-bC-BIh" id="WE2-3X-ivY"/>
                                     <outlet property="trackName" destination="Mcd-cO-jjH" id="IjR-hX-mwN"/>
                                 </connections>
                             </tableViewCell>

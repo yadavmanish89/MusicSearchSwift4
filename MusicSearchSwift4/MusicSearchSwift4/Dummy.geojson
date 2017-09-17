@@ -1,6 +1,10 @@
 {
     "type": "MultiPolygon",
-    "dataArray": [
-        "hello","hey this ios app"
+    "dataDict":{
+        "dataArray":[
+        "hello",
+        "hey this ios app",
+        "abcd jebfjef flfnelfhef efefefe fefejfehf fehlfhelhflflebfldfgld ljflefgegfe abcdefghijklmnopqrst"
     ]
+    }
 }

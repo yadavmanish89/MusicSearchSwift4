@@ -8,19 +8,20 @@
 
 import UIKit
 
-class ViewController: UITableViewController{//, UITableViewDelegate, UITableViewDataSource {
-    
+class ViewController: UITableViewController{
+    var arr:Array<String>?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableViewConfig()
+        arr = readLocalJson()
     }
     
     func tableViewConfig()  {
         //        self.tableView.register(MusicCell.self, forCellReuseIdentifier: "musiccell")
-        //        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "manish")
+//                self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "manish")
 //        self.tableView.rowHeight = UITableViewAutomaticDimension
-//        self.tableView.estimatedRowHeight = 220
+//        self.tableView.estimatedRowHeight = 100
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,7 +29,7 @@ class ViewController: UITableViewController{//, UITableViewDelegate, UITableView
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return (arr?.count)!
     }
     
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -37,16 +38,21 @@ class ViewController: UITableViewController{//, UITableViewDelegate, UITableView
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "manish", for: indexPath)
-//        cell.textLabel?.text = "\(indexPath.row+1)"
+//        cell.textLabel?.text = arr?[indexPath.row]
         
+        
+ 
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "musiccell", for: indexPath) as! MusicCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "musiccell1") as! MusicCell
-        cell.trackName?.text = "\(indexPath.row+1)"
-        if(indexPath.row>4){
-            cell.trackIcon.image = UIImage.init(named: "black")
-        }else{
-            cell.trackIcon.image = UIImage.init(named: "manish")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "musiccell2") as! MusicCell
+        cell.trackName?.text = arr?[indexPath.row]
+
+//        cell.trackName?.text = "\(indexPath.row+1)"
+//        if(indexPath.row>4){
+//            cell.trackIcon.image = UIImage.init(named: "black")
+//        }else{
+//            cell.trackIcon.image = UIImage.init(named: "manish")
+//        }
+ 
         return cell
     }
     
@@ -54,6 +60,24 @@ class ViewController: UITableViewController{//, UITableViewDelegate, UITableView
         print("tap:\(indexPath.row)")
     }
     
+    func readLocalJson() ->Array<String>? {
+        do {
+            let arr = try ReadJson.init().getLocalJson()
+            return arr
+        } catch let err {
+            switch err {
+            case MusicError.ObjectNotArray:
+                print("Not Arr \(err.localizedDescription)")
+            case MusicError.ObjectNotDictionary:
+                print("Not Dict \(err.localizedDescription)")
+            case MusicError.FilePathNotFound:
+                print("File \(err.localizedDescription)")
+            default:
+                print("default \(err.localizedDescription)")
+            }
+        }
+        return nil
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
