@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13340A421F6A068100D7ABAF /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13340A411F6A068100D7ABAF /* MusicCell.swift */; };
+		133DCCF01F7171D800E75089 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133DCCEF1F7171D800E75089 /* PlayerViewController.swift */; };
 		13498DC01F6781A100B07DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13498DBF1F6781A100B07DF6 /* AppDelegate.swift */; };
 		13498DC21F6781A100B07DF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13498DC11F6781A100B07DF6 /* ViewController.swift */; };
 		13498DC51F6781A100B07DF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13498DC31F6781A100B07DF6 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		13340A411F6A068100D7ABAF /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
+		133DCCEF1F7171D800E75089 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		13498DBC1F6781A100B07DF6 /* MusicSearchSwift4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicSearchSwift4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13498DBF1F6781A100B07DF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13498DC11F6781A100B07DF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				13498DBF1F6781A100B07DF6 /* AppDelegate.swift */,
 				13498DC11F6781A100B07DF6 /* ViewController.swift */,
 				136765A71F6F519E00394AEB /* WebService.swift */,
+				133DCCEF1F7171D800E75089 /* PlayerViewController.swift */,
 				136765A31F6F311B00394AEB /* TrackModel.swift */,
 				13D55E9D1F704AED005589C6 /* ImageDownloader.swift */,
 				1355F3611F6EF44B00A469C2 /* ReadJson.swift */,
@@ -163,6 +166,7 @@
 				13D55E9E1F704AED005589C6 /* ImageDownloader.swift in Sources */,
 				136765A81F6F519E00394AEB /* WebService.swift in Sources */,
 				13498DC21F6781A100B07DF6 /* ViewController.swift in Sources */,
+				133DCCF01F7171D800E75089 /* PlayerViewController.swift in Sources */,
 				13498DC01F6781A100B07DF6 /* AppDelegate.swift in Sources */,
 				13340A421F6A068100D7ABAF /* MusicCell.swift in Sources */,
 				1355F3621F6EF44B00A469C2 /* ReadJson.swift in Sources */,

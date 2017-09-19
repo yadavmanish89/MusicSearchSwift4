@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let searchStr = lastSearch as? String{
             loadData(searchStr: searchStr)
         }else{
-            loadData(searchStr: "Dil")
+            loadData(searchStr: "Hello")
         }
     }
     
@@ -65,15 +65,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
  
         let cell = tableView.dequeueReusableCell(withIdentifier: "musiccell", for: indexPath) as! MusicCell
-
-        cell.configureCell(data: self.dataArr[indexPath.row])
-        
- 
+        cell.celldata = self.dataArr[indexPath.row]
         return cell
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tap:\(indexPath.row)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "PlayerSegue"){
+            guard let selectedCell = sender as? MusicCell else{
+                return
+            }
+            let track = selectedCell.celldata
+            let playerVC = segue.destination as? PlayerViewController
+            playerVC?.selectedTrack = track
+        }
     }
     
     func readLocalJson() ->Array<String>? {
@@ -94,6 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         return nil
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
