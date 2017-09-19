@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -34,11 +35,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ETO-mn-ReJ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="x35-BH-GER"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MSS-64-byu" id="o5b-g2-yG6"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BLs-GL-JD5">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="121" width="375" height="546"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="musiccell" rowHeight="100" id="sR2-jk-Yer" customClass="MusicCell" customModule="MusicSearchSwift4" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="musiccell" rowHeight="100" id="sR2-jk-Yer" customClass="MusicCell" customModule="MusicSearchSwift4" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sR2-jk-Yer" id="CBa-qU-eib">
@@ -53,16 +64,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Rg-6H-eIp">
-                                                    <rect key="frame" x="0.0" y="4" width="0.0" height="90.5"/>
+                                                    <rect key="frame" x="108" y="4" width="257" height="90.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOi-hv-myH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="257" height="43.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="textColor" red="0.87652509209999996" green="0.87652509209999996" blue="0.87652509209999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8US-kA-oQo">
-                                                            <rect key="frame" x="0.0" y="47.5" width="0.0" height="43"/>
+                                                            <rect key="frame" x="0.0" y="47.5" width="257" height="43"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.87652509209999996" green="0.87652509209999996" blue="0.87652509209999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -96,7 +107,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BLs-GL-JD5" firstAttribute="top" secondItem="Edt-M6-Lhr" secondAttribute="top" id="G2a-r5-hYL"/>
+                            <constraint firstItem="ETO-mn-ReJ" firstAttribute="top" secondItem="Edt-M6-Lhr" secondAttribute="top" id="7U5-uf-gSe"/>
+                            <constraint firstItem="ETO-mn-ReJ" firstAttribute="leading" secondItem="Edt-M6-Lhr" secondAttribute="leading" id="Kuq-mu-KLT"/>
+                            <constraint firstItem="BLs-GL-JD5" firstAttribute="top" secondItem="ETO-mn-ReJ" secondAttribute="bottom" constant="1" id="Slb-I2-HcI"/>
+                            <constraint firstItem="ETO-mn-ReJ" firstAttribute="trailing" secondItem="Edt-M6-Lhr" secondAttribute="trailing" id="hqj-jI-X9u"/>
                             <constraint firstItem="BLs-GL-JD5" firstAttribute="leading" secondItem="Edt-M6-Lhr" secondAttribute="leading" id="pOf-tH-dI4"/>
                             <constraint firstItem="Edt-M6-Lhr" firstAttribute="trailing" secondItem="BLs-GL-JD5" secondAttribute="trailing" id="qoK-yb-ck9"/>
                             <constraint firstItem="Edt-M6-Lhr" firstAttribute="bottom" secondItem="BLs-GL-JD5" secondAttribute="bottom" id="uph-mh-U3o"/>

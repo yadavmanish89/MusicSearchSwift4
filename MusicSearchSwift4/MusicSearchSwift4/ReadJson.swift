@@ -33,7 +33,6 @@ class ReadJson{
                 if let artist = trackData["artistName"] as? String{
                     track.artistName = artist
                 }
-
                 trackArr.append(track)
             }
             return trackArr

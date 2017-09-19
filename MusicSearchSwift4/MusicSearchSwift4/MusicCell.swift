@@ -20,15 +20,23 @@ class MusicCell: UITableViewCell {
     func configureCell(data:TrackModel){
         self.trackName.text = data.trackName
         self.artistName.text = data.artistName
-        DispatchQueue.main.async {
+        
+        DispatchQueue.global(qos: .background).async {
             ImageDownloader.getImageFromURL(urlStr: data.iconURL!) { (image) in
                 DispatchQueue.main.async {
-                    
                     self.trackIcon.image = image
                 }
             }
-
         }
+        
+//        DispatchQueue.main.async {
+//            ImageDownloader.getImageFromURL(urlStr: data.iconURL!) { (image) in
+//                DispatchQueue.main.async {
+//
+//                    self.trackIcon.image = image
+//                }
+//            }
+//        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

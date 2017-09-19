@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
 //    var jsonarr:Array<String>?
     var dataArr = [TrackModel]()
     @IBOutlet var tableView: UITableView!
@@ -16,7 +16,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
 //        tableViewConfig()
 //        jsonarr = readLocalJson()
-        loadData()
+        
+        let lastSearch = UserDefaults.standard.value(forKey: "lastSearch")
+        if let searchStr = lastSearch as? String{
+            loadData(searchStr: searchStr)
+        }else{
+            loadData(searchStr: "Dil")
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if((searchBar.text?.characters.count)!>3){
+            loadData(searchStr:searchBar.text!)
+        }
     }
     
     func tableViewConfig()  {
@@ -24,11 +36,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.estimatedRowHeight = 100
     }
 
-    func loadData()  {
-        WebSerview.shared.getDataFromURL(urlStr: "he") { [weak self](response) in
+    func loadData(searchStr:String)  {
+        WebSerview.shared.getDataFromURL(searchStr: searchStr) { [weak self](response,searchStr) in
             guard let responseData = response else{
                 return
             }
+            UserDefaults.standard.set(searchStr, forKey: "lastSearch")
             self?.dataArr = ReadJson.shared.pasrseJsonFromData(jsonData: responseData)
             DispatchQueue.main.async {
                 self?.tableView.reloadData()

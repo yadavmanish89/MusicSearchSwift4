@@ -10,8 +10,8 @@ import Foundation
 
 class WebSerview {
     static let shared = WebSerview()
-    func getDataFromURL(urlStr:String?,completion:@escaping (Data?)->Void)  {
-        let urlStr = "https://itunes.apple.com/search?term=+dil"
+    func getDataFromURL(searchStr:String,completion:@escaping (Data?,String)->Void)  {
+        let urlStr = "https://itunes.apple.com/search?term=\(searchStr)"
         guard let urlObj = URL.init(string: urlStr) else {
             return
         }
@@ -19,7 +19,7 @@ class WebSerview {
         let config = URLSessionConfiguration.default
         let session = URLSession.init(configuration: config)
         let task = session.dataTask(with: urlRequest) { (data, response, err) in
-            completion(data)
+            completion(data,searchStr)
         }
         task.resume()
     }
