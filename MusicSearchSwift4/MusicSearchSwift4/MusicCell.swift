@@ -10,7 +10,7 @@ import UIKit
 
 class MusicCell: UITableViewCell {
     @IBOutlet private var trackName: UILabel!
-    @IBOutlet private var trackDetail: UILabel!
+    @IBOutlet private var artistName: UILabel!
     @IBOutlet private var trackIcon: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +19,7 @@ class MusicCell: UITableViewCell {
 
     func configureCell(data:TrackModel){
         self.trackName.text = data.trackName
-//        self.trackDetail.text = data.name
+        self.artistName.text = data.artistName
         DispatchQueue.main.async {
             ImageDownloader.getImageFromURL(urlStr: data.iconURL!) { (image) in
                 DispatchQueue.main.async {

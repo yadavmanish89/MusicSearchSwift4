@@ -22,12 +22,18 @@ class ReadJson{
             for trackData in resultArray {
                 var track = TrackModel.init()
                 if let trackName = trackData["trackName"] as? String{
-                    track.name = trackName
                     track.trackName = trackName
                 }
                 if let trackIcon = trackData["artworkUrl60"] as? String{
                     track.iconURL = trackIcon
                 }
+                if let previewUrl = trackData["previewUrl"] as? String{
+                    track.previewURL = previewUrl
+                }
+                if let artist = trackData["artistName"] as? String{
+                    track.artistName = artist
+                }
+
                 trackArr.append(track)
             }
             return trackArr

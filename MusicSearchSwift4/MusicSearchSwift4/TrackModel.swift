@@ -9,7 +9,8 @@
 import Foundation
 
 struct TrackModel {
-    var name:String?
+    var artistName:String?
     var trackName:String?
     var iconURL:String?
+    var previewURL:String?
 }
