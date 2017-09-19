@@ -54,13 +54,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
  
         let cell = tableView.dequeueReusableCell(withIdentifier: "musiccell", for: indexPath) as! MusicCell
 
-        let track = self.dataArr[indexPath.row]
-        cell.trackName?.text = "track.trackName"
-//        if(indexPath.row>4){
-//            cell.trackIcon.image = UIImage.init(named: "black")
-//        }else{
-//            cell.trackIcon.image = UIImage.init(named: "manish")
-//        }
+        cell.configureCell(data: self.dataArr[indexPath.row])
+        
  
         return cell
     }

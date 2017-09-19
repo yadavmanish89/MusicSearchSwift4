@@ -10,7 +10,7 @@ import Foundation
 
 class WebSerview {
     static let shared = WebSerview()
-    func getDataFromURL(urlStr:String,completion:@escaping (Data?)->Void)  {
+    func getDataFromURL(urlStr:String?,completion:@escaping (Data?)->Void)  {
         let urlStr = "https://itunes.apple.com/search?term=+dil"
         guard let urlObj = URL.init(string: urlStr) else {
             return
