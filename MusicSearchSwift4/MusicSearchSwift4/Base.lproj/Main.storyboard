@@ -96,7 +96,7 @@
                                             <outlet property="artistName" destination="8US-kA-oQo" id="FZL-17-IfN"/>
                                             <outlet property="trackIcon" destination="dD9-ds-Jsp" id="qfg-bd-WO3"/>
                                             <outlet property="trackName" destination="FOi-hv-myH" id="KVP-Yd-KUs"/>
-                                            <segue destination="VV1-h0-D68" kind="show" identifier="PlayerSegue" id="HlI-Mr-nOi"/>
+                                            <segue destination="VV1-h0-D68" kind="show" identifier="PlayerSegue" id="jkX-0w-Baa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -130,17 +130,78 @@
         <!--Player View Controller-->
         <scene sceneID="lGN-9e-EdG">
             <objects>
-                <viewController id="VV1-h0-D68" customClass="PlayerViewController" customModule="MusicSearchSwift4" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerVC" id="VV1-h0-D68" customClass="PlayerViewController" customModule="MusicSearchSwift4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CtF-y2-28d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="940-bz-uUh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="940-bz-uUh" secondAttribute="height" multiplier="75:8" id="2Tr-xe-csq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nn8-2c-xT1">
+                                <rect key="frame" x="0.0" y="106" width="375" height="234"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nn8-2c-xT1" secondAttribute="height" multiplier="125:78" id="44c-gz-5yI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDO-RF-Ts4">
+                                <rect key="frame" x="0.0" y="340" width="375" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gDO-RF-Ts4" secondAttribute="height" multiplier="75:8" id="ltN-Pt-2bN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJZ-ZT-nd1">
+                                <rect key="frame" x="110" y="390" width="155" height="155"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AJZ-ZT-nd1" secondAttribute="height" multiplier="1:1" id="zJe-bL-r3e"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="playIcon"/>
+                                <connections>
+                                    <action selector="playButton:" destination="VV1-h0-D68" eventType="touchUpInside" id="0Ru-fh-AY1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nn8-2c-xT1" firstAttribute="top" secondItem="940-bz-uUh" secondAttribute="bottom" constant="2" id="6os-MO-u71"/>
+                            <constraint firstItem="gDO-RF-Ts4" firstAttribute="trailing" secondItem="bT0-dn-E0L" secondAttribute="trailing" id="NmF-3t-vZp"/>
+                            <constraint firstItem="940-bz-uUh" firstAttribute="leading" secondItem="bT0-dn-E0L" secondAttribute="leading" id="STJ-Em-OpS"/>
+                            <constraint firstItem="AJZ-ZT-nd1" firstAttribute="top" secondItem="gDO-RF-Ts4" secondAttribute="bottom" constant="10" id="WIL-Sq-fKo"/>
+                            <constraint firstItem="nn8-2c-xT1" firstAttribute="trailing" secondItem="bT0-dn-E0L" secondAttribute="trailing" id="YQf-xi-5dE"/>
+                            <constraint firstItem="gDO-RF-Ts4" firstAttribute="leading" secondItem="bT0-dn-E0L" secondAttribute="leading" id="bzM-DB-8UB"/>
+                            <constraint firstItem="bT0-dn-E0L" firstAttribute="trailing" secondItem="AJZ-ZT-nd1" secondAttribute="trailing" constant="110" id="iOX-sE-lne"/>
+                            <constraint firstItem="bT0-dn-E0L" firstAttribute="trailing" secondItem="940-bz-uUh" secondAttribute="trailing" id="j0K-Gy-PCn"/>
+                            <constraint firstItem="AJZ-ZT-nd1" firstAttribute="leading" secondItem="bT0-dn-E0L" secondAttribute="leading" constant="110" id="nZT-Y6-vR5"/>
+                            <constraint firstItem="nn8-2c-xT1" firstAttribute="leading" secondItem="bT0-dn-E0L" secondAttribute="leading" id="rgL-OP-e0X"/>
+                            <constraint firstItem="940-bz-uUh" firstAttribute="top" secondItem="bT0-dn-E0L" secondAttribute="top" id="scU-zc-CjT"/>
+                            <constraint firstItem="gDO-RF-Ts4" firstAttribute="top" secondItem="nn8-2c-xT1" secondAttribute="bottom" id="yV4-tw-S1C"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bT0-dn-E0L"/>
                     </view>
+                    <connections>
+                        <outlet property="artistName" destination="gDO-RF-Ts4" id="miP-B6-7FB"/>
+                        <outlet property="iconImageView" destination="nn8-2c-xT1" id="afY-RA-ZGB"/>
+                        <outlet property="trackName" destination="940-bz-uUh" id="FYB-6S-pkY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAe-47-kPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221" y="108"/>
+            <point key="canvasLocation" x="1183" y="103"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="playIcon" width="512" height="512"/>
+    </resources>
 </document>

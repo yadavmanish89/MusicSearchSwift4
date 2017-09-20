@@ -59,6 +59,9 @@ class ReadJson{
             if let dataArray = dataDict["dataArray"] as? Array<String>{
                 return dataArray
             }
+            else{
+                throw MusicError.ObjectNotArray // just for try to throw in  binding
+            }
         } catch let err {
             print("Error\(err.localizedDescription)")
         }

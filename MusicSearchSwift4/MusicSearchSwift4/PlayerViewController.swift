@@ -7,14 +7,47 @@
 //
 
 import UIKit
-
-class PlayerViewController: UIViewController {
+import WebKit
+class PlayerViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     var selectedTrack:TrackModel?
+    @IBOutlet var trackName: UILabel!
+    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var artistName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+                populateData()
+//
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        loadWebView()
+    }
+    
+    func populateData() {
+        self.trackName.text = selectedTrack?.trackName
+        self.artistName.text = selectedTrack?.artistName
+        DispatchQueue.global(qos: .background).async {
+            ImageDownloader.getImageFromURL(urlStr: (self.selectedTrack?.iconURL)!) { (image) in
+                DispatchQueue.main.async {
+                    self.iconImageView.image = image
+                }
+            }
+        }
+    }
+    
+    @IBAction func playButton(_ sender: UIButton) {
+        guard let urlStr = selectedTrack?.previewURL else{
+            return
+        }
+        guard let url = URL.init(string:urlStr) else{
+            return
+        }
+
+        UIApplication.shared.open(url, options: [ : ], completionHandler: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if((searchBar.text?.characters.count)!>3){
+        if((searchBar.text?.characters.count)!>2){
             loadData(searchStr:searchBar.text!)
         }
     }
@@ -70,7 +70,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tap:\(indexPath.row)")
+//        let stb = UIStoryboard.init(name: "Main", bundle: nil)
+//        let playerVC = stb.instantiateViewController(withIdentifier: "PlayerVC") as? PlayerViewController
+//        playerVC?.selectedTrack = self.dataArr[indexPath.row]
+//        self.navigationController?.pushViewController(playerVC!, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
